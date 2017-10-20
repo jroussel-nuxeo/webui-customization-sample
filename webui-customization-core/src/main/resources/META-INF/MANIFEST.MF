@@ -1,0 +1,9 @@
+Bundle-ActivationPolicy: lazy
+Bundle-ClassPath: .
+Manifest-Version: 1.0
+Bundle-Vendor: org.nuxeo.ecm.webui.customization
+Bundle-Version: 1.0.0
+Bundle-Name: webui-customization-core
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: org.nuxeo.ecm.webui.customization.webui-customization-core;singleton=true
+Nuxeo-Component: OSGI-INF/customization-webresources-contrib.xml
