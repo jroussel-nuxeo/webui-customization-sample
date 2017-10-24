@@ -1,0 +1,27 @@
+{
+  "name": "webui-customization-core",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jroussel-nuxeo/webui-customization-sample.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jroussel-nuxeo/webui-customization-sample/issues"
+  },
+  "homepage": "https://github.com/jroussel-nuxeo/webui-customization-sample#readme",
+  "devDependencies": {
+    "browser-sync": "^2.18.13",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-debug": "^3.1.0",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-size": "^2.1.0",
+    "gulp-vulcanize": "^6.1.0",
+    "path": "^0.12.7",
+    "run-sequence": "^2.2.0"
+  }
+}

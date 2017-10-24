@@ -1,0 +1,7 @@
+{
+  "name": "webui-customization-core",
+  "private": true,
+  "dependencies": {
+    "paper-toast": "^2.0.0"
+  }
+}

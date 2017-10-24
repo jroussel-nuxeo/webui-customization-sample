@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<!--
+(C) Copyright Nuxeo Corp. (http://nuxeo.com/)
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+<project name="Webui customization core" default="build" basedir=".">
+
+  <!-- set executable names based on OS family -->
+  <condition property="cmd.npm" value="npm" else="npm">
+    <os family="mac"/>
+  </condition>
+  <condition property="cmd.bower" value="bower" else="bower">
+    <os family="mac"/>
+  </condition>
+  <condition property="cmd.gulp" value="gulp" else="gulp">
+    <os family="mac"/>
+  </condition>
+  <condition property="cmd.mvn" value="mvn" else="mvn">
+    <os family="mac"/>
+  </condition>
+
+  <target name="init" description="Download all node and web dependencies">
+    <delete includeEmptyDirs="yes" failonerror="false">
+      <!--<fileset dir="node_modules" defaultexcludes="no" followsymlinks="false" />-->
+      <fileset dir="src/main/resources/web/nuxeo.war/ui/bower_components" defaultexcludes="no" followsymlinks="false" />
+    </delete>
+    <exec executable="${cmd.npm}" failonerror="true">
+      <arg value="install" />
+    </exec>
+    <exec executable="${cmd.bower}" failonerror="true">
+      <arg value="install" />
+    </exec>
+    <!--
+    <exec executable="${cmd.npm}" failonerror="true">
+      <arg value="run" />
+      <arg value="lint" />
+    </exec>
+    -->
+    <copy todir="target/classes/web/nuxeo.war/ui/bower_components">
+      <fileset dir="src/main/resources/web/nuxeo.war/ui/bower_components" />
+    </copy>
+  </target>
+
+  <target name="test">
+    <exec executable="${cmd.gulp}" failonerror="true">
+      <arg value="test:local" />
+    </exec>
+  </target>
+
+  <target name="build" depends="init">
+    <exec executable="${cmd.gulp}" failonerror="true">
+      <arg value="build" />
+    </exec>
+  </target>
+
+</project>
