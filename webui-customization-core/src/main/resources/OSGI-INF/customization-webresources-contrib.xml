@@ -5,19 +5,21 @@
     <require>org.nuxeo.web.ui.resources</require>
 
     <extension target="org.nuxeo.ecm.platform.WebResources" point="resources">
-        <resource name="my-element.html" type="import">
+        <!--<resource name="my-element.html" type="import">
             <uri>/ui/custom-elements/my-element.html</uri>
         </resource>
         <resource name="my-custom-toast.html" type="import">
             <uri>/ui/custom-elements/my-custom-toast.html</uri>
+        </resource>-->
+        <resource name="webui-customization-elements.html" type="import">
+            <uri>/ui/webui-customization-elements.html</uri>
         </resource>
     </extension>
 
     <extension target="org.nuxeo.ecm.platform.WebResources" point="bundles">
         <bundle name="web-ui">
             <resources append="true">
-                <resource>my-element.html</resource>
-                <resource>my-custom-toast.html</resource>
+                <resource>webui-customization-elements.html</resource>
             </resources>
         </bundle>
     </extension>

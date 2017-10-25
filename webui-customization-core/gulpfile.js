@@ -57,23 +57,25 @@ gulp.task('build', ['clean'], function(cb) {
 
 // Vulcanize granular configuration
 gulp.task('vulcanize', function() {
-    return gulp.src(dist('custom-elements/my-custom-toast.html'))
+    return gulp.src(dist('webui-customization-elements.html'))
         .pipe($.vulcanize({
             stripComments: true,
             inlineCss: true,
             inlineScripts: true,
             stripExcludes: [dist('bower_components/polymer/polymer.html'),
+                dist('bower_components/paper-toast/paper-toast.html')
             ]
         }))
         //.pipe($.minifyInline())
         .pipe(debug({test: 'Foobar'}))
-        .pipe(gulp.dest(dist('custom-elements')))
+        .pipe(gulp.dest(dist()))
         .pipe($.size({title: 'vulcanize'}));
 });
 
 // Strip unnecessary stuff
 gulp.task('strip', function() {
     return del([
-        dist('bower_components/**')
+        dist('bower_components/**'),
+        dist('custom-elements/**')
     ]);
 });
