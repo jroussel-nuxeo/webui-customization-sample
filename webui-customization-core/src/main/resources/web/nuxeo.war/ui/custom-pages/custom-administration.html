@@ -15,6 +15,30 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-<link rel="import" href="custom-elements/my-custom-toast.html">
-<link rel="import" href="custom-elements/my-element.html">
-<link rel="import" href="slots-content.html">
+<!--
+`custom-administration`
+@group Nuxeo UI sample
+@element custom-administration
+-->
+
+<dom-module id="custom-administration">
+    <template>
+        <style include="shared-styles">
+            :host {
+                display: block;
+
+                padding: 10px;
+            }
+        </style>
+
+        <div class="content">
+            Add code of your custom administration page in here.
+        </div>
+    </template>
+
+    <script>
+        Polymer({
+            is: 'custom-administration'
+        });
+    </script>
+</dom-module>

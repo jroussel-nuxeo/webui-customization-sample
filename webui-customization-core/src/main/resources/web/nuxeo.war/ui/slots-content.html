@@ -1,0 +1,37 @@
+<!--
+@license
+(C) Copyright Nuxeo Corp. (http://nuxeo.com/)
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+
+<!-- For more information see following documentation page: https://doc.nuxeo.com/nxdoc/web-ui-slots/ -->
+
+<link rel="import" href="custom-pages/custom-administration.html">
+
+<!-- First we need to add the custom page in the administration pages slot -->
+<nuxeo-slot-content name="customAdminPage" slot="ADMINISTRATION_PAGES">
+    <nuxeo-filter user="[[user]]" expression="user.isAdministrator">
+        <template>
+            <custom-administration name="customadmin"></custom-administration>
+        </template>
+    </nuxeo-filter>
+</nuxeo-slot-content>
+
+<!-- Finally we need to add an entry in the administration menu, to point toward our page -->
+<nuxeo-slot-content name="adminCustomMenuItem" slot="ADMINISTRATION_MENU" order="100">
+    <template>
+        <!-- The route has to be 'administration:theNameYouSpecifiedInTheTemplateAbove' -->
+        <nuxeo-menu-item name="custom-admin" label="My custom admin page" route="administration:customadmin"></nuxeo-menu-item>
+    </template>
+</nuxeo-slot-content>
